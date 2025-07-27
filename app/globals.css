@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+
   --color-success-100: #49de50;
   --color-success-200: #42c748;
   --color-destructive-100: #f75353;
@@ -24,10 +25,11 @@
 
   --font-mona-sans: "Mona Sans", sans-serif;
 
-  --bg-pattern: url("/pattern.png");
+  --bg-pattern: url("//pattern.png");
 }
 
 :root {
+  --light-100: #d6e0ff;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
