@@ -127,9 +127,7 @@ const Agent = ({
     } else {
       let formattedQuestions = "";
       if (questions) {
-        formattedQuestions = questions
-            .map((question) => `- ${question}`)
-            .join("\n");
+        formattedQuestions = questions.map((q) => `- ${q}`).join("\n");
       }
 
       await vapi.start(interviewer, {
@@ -150,15 +148,17 @@ const Agent = ({
         <div className="call-view">
           {/* AI Interviewer Card */}
           <div className="card-interviewer">
-            <div className="avatar">
+            <div className="avatar relative">
               <Image
                   src="/ai-avatar.png"
-                  alt="profile-image"
+                  alt="AI Interviewer"
                   width={65}
                   height={54}
                   className="object-cover"
               />
-              {isSpeaking && <span className="animate-speak" />}
+              {isSpeaking && (
+                  <span className="absolute top-0 right-0 w-3 h-3 rounded-full bg-primary-200 animate-ping opacity-75" />
+              )}
             </div>
             <h3>AI Interviewer</h3>
           </div>
@@ -168,7 +168,7 @@ const Agent = ({
             <div className="card-content">
               <Image
                   src="/user-avatar.png"
-                  alt="profile-image"
+                  alt="User Profile"
                   width={539}
                   height={539}
                   className="rounded-full object-cover size-[120px]"
@@ -196,14 +196,13 @@ const Agent = ({
 
         <div className="w-full flex justify-center">
           {callStatus !== "ACTIVE" ? (
-              <button className="relative btn-call" onClick={() => handleCall()}>
+              <button className="relative btn-call" onClick={handleCall}>
             <span
                 className={cn(
                     "absolute animate-ping rounded-full opacity-75",
                     callStatus !== "CONNECTING" && "hidden"
                 )}
             />
-
                 <span className="relative">
               {callStatus === "INACTIVE" || callStatus === "FINISHED"
                   ? "Call"
@@ -211,7 +210,7 @@ const Agent = ({
             </span>
               </button>
           ) : (
-              <button className="btn-disconnect" onClick={() => handleDisconnect()}>
+              <button className="btn-disconnect" onClick={handleDisconnect}>
                 End
               </button>
           )}
