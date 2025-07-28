@@ -27,4 +27,4 @@ A job interview preparation platform powered by AI voice agents and Firebase.
 
 ---
 
-Made by [Tekrat Kumar](https://github.com/tekrat1) 🚀
+Made by [Tekrat](https://github.com/tekrat1) 🚀
